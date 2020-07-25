@@ -1,6 +1,6 @@
 package com.pavel.utils;
 
-public class ArrayStack<T> {
+public class ArrayStack<T> implements Stack<T> {
     private final Object[] array;
     private int top;
 
@@ -9,23 +9,25 @@ public class ArrayStack<T> {
         top = -1;
     }
 
-
     public int size() {
         return array.length;
     }
 
+    @Override
     public boolean isEmpty() {
         return top == -1;
     }
 
+    @Override
     public void push(T value) {
         array[++top] = value;
     }
 
     public boolean isFull() {
-        return top == array.length -1;
+        return top == array.length - 1;
     }
 
+    @Override
     public T pop() {
         return (T) array[top--];
     }
