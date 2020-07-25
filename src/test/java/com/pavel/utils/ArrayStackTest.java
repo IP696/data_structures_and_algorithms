@@ -68,4 +68,9 @@ public class ArrayStackTest {
 
         assertEquals(new Integer(1), peekedValue);
     }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void popFromEmptyStackShouldThrowException() {
+        arrayStack.pop();
+    }
 }

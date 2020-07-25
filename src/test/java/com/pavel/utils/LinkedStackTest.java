@@ -37,4 +37,9 @@ public class LinkedStackTest {
         assertEquals(new Integer(3), poppedValue);
         assertFalse(linkedStack.isEmpty());
     }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void popFromEmptyStackShouldThrowException() {
+        linkedStack.pop();
+    }
 }

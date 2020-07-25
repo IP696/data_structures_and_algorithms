@@ -29,6 +29,7 @@ public class ArrayStack<T> implements Stack<T> {
 
     @Override
     public T pop() {
+        if (isEmpty()) throw new IndexOutOfBoundsException();
         return (T) array[top--];
     }
 
