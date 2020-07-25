@@ -7,11 +7,11 @@ import static org.junit.Assert.*;
 
 public class LinkedListTest {
 
-    private LinkedList linkedList;
+    private LinkedList<Integer> linkedList;
 
     @Before
     public void setUp() {
-        linkedList = new LinkedList();
+        linkedList = new LinkedList<>();
     }
 
     @Test

@@ -1,21 +1,21 @@
 package com.pavel.utils;
 
-public class LinkedList {
-    private Node first;
+public class LinkedList<T> {
+    private Node<T> first;
 
     public boolean isEmpty() {
         return first == null;
     }
 
-    public void addFirst(Integer value) {
-        Node newNode = new Node(value);
+    public void addFirst(T value) {
+        Node<T> newNode = new Node<>(value);
         newNode.next = first;
         first = newNode;
     }
 
     public int size() {
         int count = 0;
-        Node current = this.first;
+        Node<T> current = this.first;
         while (current != null) {
             count++;
             current = current.next;
@@ -23,18 +23,18 @@ public class LinkedList {
         return count;
     }
 
-    public Integer deleteFirst() {
+    public T deleteFirst() {
         if (isEmpty()) throw new IndexOutOfBoundsException();
-        Node temp = first;
+        Node<T> temp = first;
         first = first.next;
         return temp.value;
     }
 
-    private static class Node {
-        Integer value;
-        Node next;
+    private static class Node<T> {
+        T value;
+        Node<T> next;
 
-        public Node(Integer value) {
+        public Node(T value) {
             this.value = value;
         }
     }
