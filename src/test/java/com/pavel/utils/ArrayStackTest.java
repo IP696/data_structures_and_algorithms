@@ -1,36 +1,31 @@
 package com.pavel.utils;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class ArrayStackTest {
 
-    @Test
-    public void stackCanBeCreated() {
-        ArrayStack<Integer> arrayStack = new ArrayStack<>(5);
+    private ArrayStack<Integer> arrayStack;
 
-        assertNotNull(arrayStack);
+    @Before
+    public void setUp() {
+        arrayStack = new ArrayStack<>(3);
     }
 
     @Test
     public void size() {
-        ArrayStack<Integer> arrayStack = new ArrayStack<>(5);
-
-        assertEquals(5, arrayStack.size());
+        assertEquals(3, arrayStack.size());
     }
 
     @Test
     public void isEmptyTrue() {
-        ArrayStack<Integer> arrayStack = new ArrayStack<>(5);
-
         assertTrue(arrayStack.isEmpty());
     }
 
     @Test
     public void isEmptyFalse() {
-        ArrayStack<Integer> arrayStack = new ArrayStack<>(5);
-
         arrayStack.push(1);
 
         assertFalse(arrayStack.isEmpty());
@@ -38,7 +33,6 @@ public class ArrayStackTest {
 
     @Test
     public void isFullTrue() {
-        ArrayStack<Integer> arrayStack = new ArrayStack<>(3);
         arrayStack.push(1);
         arrayStack.push(2);
         arrayStack.push(3);
@@ -48,17 +42,14 @@ public class ArrayStackTest {
 
     @Test
     public void isFullFalse() {
-        ArrayStack<Integer> arrayStack = new ArrayStack<>(5);
         arrayStack.push(1);
         arrayStack.push(2);
-        arrayStack.push(3);
 
         assertFalse(arrayStack.isFull());
     }
 
     @Test
     public void pop() {
-        ArrayStack<Integer> arrayStack = new ArrayStack<>(5);
         arrayStack.push(1);
         arrayStack.push(2);
         arrayStack.push(3);
@@ -71,7 +62,6 @@ public class ArrayStackTest {
 
     @Test
     public void peek() {
-        ArrayStack<Integer> arrayStack = new ArrayStack<>(5);
         arrayStack.push(1);
 
         Integer peekedValue = arrayStack.peek();
