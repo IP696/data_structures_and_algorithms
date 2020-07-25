@@ -15,7 +15,7 @@ public class LinkedList<T> {
 
     public int size() {
         int count = 0;
-        Node<T> current = this.first;
+        Node<T> current = first;
         while (current != null) {
             count++;
             current = current.next;
@@ -28,6 +28,15 @@ public class LinkedList<T> {
         Node<T> temp = first;
         first = first.next;
         return temp.value;
+    }
+
+    public boolean contains(T value) {
+        Node<T> current = first;
+        while (!current.value.equals(value)) {
+            if (current.next == null) return false;
+            current = current.next;
+        }
+        return true;
     }
 
     private static class Node<T> {

@@ -44,12 +44,30 @@ public class LinkedListTest {
 
         Integer deletedItem = linkedList.deleteFirst();
 
-        assertEquals(new Integer(1),deletedItem);
+        assertEquals(new Integer(1), deletedItem);
         assertTrue(linkedList.isEmpty());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void deleteFirstItemFromEmptyListShouldThrowException() {
         linkedList.deleteFirst();
+    }
+
+    @Test
+    public void listContainsValue() {
+        linkedList.addFirst(1);
+        linkedList.addFirst(2);
+        linkedList.addFirst(3);
+
+        assertTrue(linkedList.contains(2));
+    }
+
+    @Test
+    public void listDoesNotContainValue() {
+        linkedList.addFirst(1);
+        linkedList.addFirst(2);
+        linkedList.addFirst(3);
+
+        assertFalse(linkedList.contains(4));
     }
 }
