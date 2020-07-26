@@ -3,6 +3,8 @@ package com.pavel.utils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 
 public class ArrayQueueTest {
@@ -48,7 +50,7 @@ public class ArrayQueueTest {
         arrayQueue.insert(4);
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void removeFromEmptyQueueShouldThrowException() {
         arrayQueue.remove();
     }
@@ -78,8 +80,8 @@ public class ArrayQueueTest {
         assertFalse(arrayQueue.isEmpty());
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void peekFrontFromEmptyQueueShouldThrowException() {
-        arrayQueue.peekFront();
+    @Test
+    public void peekFrontFromEmptyQueueShouldReturnNull() {
+        assertNull(arrayQueue.peekFront());
     }
 }
