@@ -1,6 +1,7 @@
-package com.pavel.utils;
+package com.pavel.example;
 
-import com.pavel.example.StringReverser;
+import com.pavel.utils.ArrayStack;
+import com.pavel.utils.LinkedStack;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
