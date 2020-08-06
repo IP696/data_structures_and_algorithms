@@ -2,7 +2,7 @@ package com.pavel.utils;
 
 import java.util.NoSuchElementException;
 
-public class ArrayQueue<T> {
+public class ArrayQueue<T> implements Queue<T>{
 
     private final int maxSize;
     private final Object[] array;
@@ -18,10 +18,12 @@ public class ArrayQueue<T> {
         rear = -1;
     }
 
+    @Override
     public boolean isEmpty() {
         return nItems == 0;
     }
 
+    @Override
     public void insert(T value) {
         if (isFull()) throw new IndexOutOfBoundsException();
         if (rear == maxSize - 1) rear = -1;
@@ -29,10 +31,12 @@ public class ArrayQueue<T> {
         nItems++;
     }
 
+    @Override
     public boolean isFull() {
         return nItems == maxSize;
     }
 
+    @Override
     public T remove() {
         if (isEmpty()) throw new NoSuchElementException();
         T temp = (T) array[front++];
@@ -41,10 +45,12 @@ public class ArrayQueue<T> {
         return temp;
     }
 
+    @Override
     public int size() {
         return nItems;
     }
 
+    @Override
     public T peekFront() {
         if (isEmpty()) return null;
         return (T) array[front];
