@@ -86,4 +86,17 @@ public class FirstLastListTest {
 
         assertEquals(new Integer(1), firstLastList.deleteFirst());
     }
+
+    @Test
+    public void IfListIsEmptyGetFirstShouldReturnNull() {
+        assertNull(firstLastList.getFirst());
+    }
+
+    @Test
+    public void getFirst() {
+        firstLastList.addFirst(1);
+
+        assertEquals(new Integer(1), firstLastList.getFirst());
+        assertEquals(1, firstLastList.size());
+    }
 }

@@ -58,6 +58,11 @@ public class FirstLastList<T> {
         return false;
     }
 
+    public T getFirst() {
+        if (isEmpty()) return null;
+        return first.value;
+    }
+
     private static class Node<T> {
         T value;
         Node<T> next;
