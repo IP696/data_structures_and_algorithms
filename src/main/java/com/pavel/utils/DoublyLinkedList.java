@@ -1,8 +1,8 @@
 package com.pavel.utils;
 
-public class DoublyLinkedList {
-    private Node first;
-    private Node last;
+public class DoublyLinkedList<T> {
+    private Node<T> first;
+    private Node<T> last;
 
     public boolean isEmpty() {
         return first == null;
@@ -10,7 +10,7 @@ public class DoublyLinkedList {
 
     public int size() {
         int count = 0;
-        Node current = first;
+        Node<T> current = first;
         while (current != null) {
             count++;
             current = current.next;
@@ -18,8 +18,8 @@ public class DoublyLinkedList {
         return count;
     }
 
-    public void addFirst(int value) {
-        Node newNode = new Node(value);
+    public void addFirst(T value) {
+        Node<T> newNode = new Node<>(value);
         if (isEmpty()) {
             last = newNode;
         } else {
@@ -29,8 +29,8 @@ public class DoublyLinkedList {
         first = newNode;
     }
 
-    public void addLast(int value) {
-        Node newNode = new Node(value);
+    public void addLast(T value) {
+        Node<T> newNode = new Node<>(value);
         if (isEmpty()) {
             first = newNode;
         } else {
@@ -40,9 +40,9 @@ public class DoublyLinkedList {
         last = newNode;
     }
 
-    public int removeFirst() {
+    public T removeFirst() {
         if (isEmpty()) throw new IndexOutOfBoundsException();
-        Node temp = first;
+        Node<T> temp = first;
         if (first.next == null) {
             last = null;
         } else {
@@ -52,9 +52,9 @@ public class DoublyLinkedList {
         return temp.value;
     }
 
-    public int removeLast() {
+    public T removeLast() {
         if (isEmpty()) throw new IndexOutOfBoundsException();
-        Node temp = last;
+        Node<T> temp = last;
         if (last.previous == null) {
             first = null;
         } else {
@@ -64,23 +64,23 @@ public class DoublyLinkedList {
         return temp.value;
     }
 
-    public boolean contains(int value) {
-        Node current = this.first;
+    public boolean contains(T value) {
+        Node<T> current = this.first;
         while (current != null) {
-            if (current.value == value) return true;
+            if (current.value.equals(value)) return true;
             current = current.next;
         }
         return false;
     }
 
-    public boolean addAfter(int value, int newValue) {
-        Node current = first;
-        while (current.value != value) {
+    public boolean addAfter(T value, T newValue) {
+        Node<T> current = first;
+        while (!current.value.equals(value)) {
             current = current.next;
             if (current == null) return false;
         }
 
-        Node newNode = new Node(newValue);
+        Node<T> newNode = new Node<>(newValue);
         if (current == last) {
             newNode.next = null;
             last = newNode;
@@ -93,12 +93,12 @@ public class DoublyLinkedList {
         return true;
     }
 
-    public int deleteKey(int value) {
+    public T deleteKey(T value) {
         if (isEmpty()) throw new IndexOutOfBoundsException();
-        Node current = this.first;
-        while (current.value != value) {
+        Node<T> current = first;
+        while (!current.value.equals(value)) {
             current = current.next;
-            if (current == null) return -1;
+            if (current == null) return null;
         }
 
         if (current == first) {
@@ -115,12 +115,12 @@ public class DoublyLinkedList {
         return value;
     }
 
-    private static class Node {
-        int value;
-        Node next;
-        Node previous;
+    private static class Node<T> {
+        T value;
+        Node<T> next;
+        Node<T> previous;
 
-        public Node(int value) {
+        public Node(T value) {
             this.value = value;
         }
     }

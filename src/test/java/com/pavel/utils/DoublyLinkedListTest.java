@@ -7,11 +7,11 @@ import static org.junit.Assert.*;
 
 public class DoublyLinkedListTest {
 
-    private DoublyLinkedList list;
+    private DoublyLinkedList<Integer> list;
 
     @Before
     public void setUp() {
-        list = new DoublyLinkedList();
+        list = new DoublyLinkedList<>();
     }
 
     @Test
@@ -70,8 +70,8 @@ public class DoublyLinkedListTest {
         list.addFirst(1);
         list.addFirst(2);
 
-        assertEquals(2, list.removeFirst());
-        assertEquals(1, list.removeFirst());
+        assertEquals(new Integer(2), list.removeFirst());
+        assertEquals(new Integer(1), list.removeFirst());
         assertTrue(list.isEmpty());
         assertEquals(0, list.size());
     }
@@ -126,8 +126,8 @@ public class DoublyLinkedListTest {
         list.addLast(1);
         list.addLast(2);
 
-        assertEquals(2, list.removeLast());
-        assertEquals(1, list.removeLast());
+        assertEquals(new Integer(2), list.removeLast());
+        assertEquals(new Integer(1), list.removeLast());
         assertTrue(list.isEmpty());
         assertEquals(0, list.size());
     }
@@ -137,8 +137,8 @@ public class DoublyLinkedListTest {
         list.addFirst(1);
         list.addFirst(2);
 
-        assertEquals(1, list.removeLast());
-        assertEquals(2, list.removeLast());
+        assertEquals(new Integer(1), list.removeLast());
+        assertEquals(new Integer(2), list.removeLast());
         assertTrue(list.isEmpty());
         assertEquals(0, list.size());
     }
@@ -148,8 +148,8 @@ public class DoublyLinkedListTest {
         list.addLast(1);
         list.addLast(2);
 
-        assertEquals(1, list.removeFirst());
-        assertEquals(2, list.removeFirst());
+        assertEquals(new Integer(1), list.removeFirst());
+        assertEquals(new Integer(2), list.removeFirst());
         assertTrue(list.isEmpty());
         assertEquals(0, list.size());
     }
@@ -160,9 +160,9 @@ public class DoublyLinkedListTest {
         list.addFirst(1);
 
         assertTrue(list.addAfter(1, 2));
-        assertEquals(1, list.removeFirst());
-        assertEquals(2, list.removeFirst());
-        assertEquals(3, list.removeFirst());
+        assertEquals(new Integer(1), list.removeFirst());
+        assertEquals(new Integer(2), list.removeFirst());
+        assertEquals(new Integer(3), list.removeFirst());
     }
 
     @Test
@@ -190,7 +190,7 @@ public class DoublyLinkedListTest {
     public void deleteKeyShouldReturnNegativeValueIfItemDoesNotExist() {
         list.addFirst(1);
 
-        assertEquals(-1, list.deleteKey(2));
+        assertNull(list.deleteKey(2));
         assertEquals(1, list.size());
         assertFalse(list.isEmpty());
     }
@@ -201,7 +201,7 @@ public class DoublyLinkedListTest {
         list.addFirst(2);
         list.addFirst(3);
 
-        assertEquals(2, list.deleteKey(2));
+        assertEquals(new Integer(2), list.deleteKey(2));
         assertEquals(2, list.size());
         assertFalse(list.isEmpty());
     }
@@ -212,7 +212,7 @@ public class DoublyLinkedListTest {
         list.addFirst(2);
         list.addFirst(3);
 
-        assertEquals(3, list.deleteKey(3));
+        assertEquals(new Integer(3), list.deleteKey(3));
         assertEquals(2, list.size());
         assertFalse(list.isEmpty());
     }
@@ -223,7 +223,7 @@ public class DoublyLinkedListTest {
         list.addFirst(2);
         list.addFirst(3);
 
-        assertEquals(1, list.deleteKey(1));
+        assertEquals(new Integer(1), list.deleteKey(1));
         assertEquals(2, list.size());
         assertFalse(list.isEmpty());
     }
