@@ -1,5 +1,6 @@
-package com.pavel.utils;
+package com.pavel.example;
 
+import com.pavel.utils.FirstLastList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
