@@ -1,5 +1,7 @@
 package com.pavel.utils;
 
+import java.util.NoSuchElementException;
+
 public class FirstLastList<T> {
 
     private Node<T> first;
@@ -42,7 +44,7 @@ public class FirstLastList<T> {
     }
 
     public T deleteFirst() {
-        if (isEmpty()) throw new IndexOutOfBoundsException();
+        if (isEmpty()) throw new NoSuchElementException();
         T temp = first.value;
         if (first.next == null) last = null;
         first = first.next;

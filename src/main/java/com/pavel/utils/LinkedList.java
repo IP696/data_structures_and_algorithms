@@ -1,5 +1,7 @@
 package com.pavel.utils;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList<T> {
     private Node<T> first;
 
@@ -24,7 +26,7 @@ public class LinkedList<T> {
     }
 
     public T deleteFirst() {
-        if (isEmpty()) throw new IndexOutOfBoundsException();
+        if (isEmpty()) throw new NoSuchElementException();
         Node<T> temp = first;
         first = first.next;
         return temp.value;

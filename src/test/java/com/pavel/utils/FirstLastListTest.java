@@ -3,6 +3,8 @@ package com.pavel.utils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 
 public class FirstLastListTest {
@@ -43,7 +45,7 @@ public class FirstLastListTest {
         assertEquals(1, firstLastList.size());
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void ifListIsEmptyDeleteFirstShouldThrowException() {
         firstLastList.deleteFirst();
     }

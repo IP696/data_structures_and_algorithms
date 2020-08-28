@@ -1,5 +1,7 @@
 package com.pavel.utils;
 
+import java.util.NoSuchElementException;
+
 public class DoublyLinkedList<T> {
     private Node<T> first;
     private Node<T> last;
@@ -41,7 +43,7 @@ public class DoublyLinkedList<T> {
     }
 
     public T removeFirst() {
-        if (isEmpty()) throw new IndexOutOfBoundsException();
+        if (isEmpty()) throw new NoSuchElementException();
         Node<T> temp = first;
         if (first.next == null) {
             last = null;
@@ -53,7 +55,7 @@ public class DoublyLinkedList<T> {
     }
 
     public T removeLast() {
-        if (isEmpty()) throw new IndexOutOfBoundsException();
+        if (isEmpty()) throw new NoSuchElementException();
         Node<T> temp = last;
         if (last.previous == null) {
             first = null;
@@ -94,7 +96,7 @@ public class DoublyLinkedList<T> {
     }
 
     public T deleteKey(T value) {
-        if (isEmpty()) throw new IndexOutOfBoundsException();
+        if (isEmpty()) throw new NoSuchElementException();
         Node<T> current = first;
         while (!current.value.equals(value)) {
             current = current.next;

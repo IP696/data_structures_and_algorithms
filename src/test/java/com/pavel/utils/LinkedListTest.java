@@ -3,6 +3,8 @@ package com.pavel.utils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 
 public class LinkedListTest {
@@ -48,7 +50,7 @@ public class LinkedListTest {
         assertTrue(linkedList.isEmpty());
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void deleteFirstItemFromEmptyListShouldThrowException() {
         linkedList.deleteFirst();
     }

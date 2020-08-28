@@ -3,6 +3,8 @@ package com.pavel.utils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 
 public class DoublyLinkedListTest {
@@ -52,7 +54,7 @@ public class DoublyLinkedListTest {
         assertEquals(2, list.size());
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void deleteFirstFromEmptyListShouldThrowException() {
         list.removeFirst();
     }
@@ -108,7 +110,7 @@ public class DoublyLinkedListTest {
         assertEquals(2, list.size());
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void deleteLastFromEmptyListShouldThrowException() {
         list.removeLast();
     }
@@ -181,7 +183,7 @@ public class DoublyLinkedListTest {
         assertTrue(list.addAfter(2, 3));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void deleteKeyCalledOnEmptyListShouldThrowException() {
         list.deleteKey(1);
     }
