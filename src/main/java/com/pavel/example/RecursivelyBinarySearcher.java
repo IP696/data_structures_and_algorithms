@@ -8,8 +8,8 @@ public class RecursivelyBinarySearcher {
         this.arr = arr;
     }
 
-    public int find(int value) {
-        return recFind(0, arr.length, value);
+    public int find(int searchValue) {
+        return recFind(0, arr.length-1, searchValue);
     }
 
     private int recFind(int lowerBound, int upperBound, int searchValue) {

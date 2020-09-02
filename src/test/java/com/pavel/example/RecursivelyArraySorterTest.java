@@ -20,5 +20,6 @@ public class RecursivelyArraySorterTest {
         assertEquals(7, binarySearcher.find(8));
         assertEquals(8, binarySearcher.find(9));
         assertEquals(9, binarySearcher.find(10));
+        assertEquals(-1, binarySearcher.find(11));
     }
 }
